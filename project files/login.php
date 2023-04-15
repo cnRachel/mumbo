@@ -57,7 +57,7 @@ if(isset($message)){
 <div class="container">
    <div class="content">
       <h3 class="title">Mumbo</h3>
-      <p>Welcome to Mumbo! It's the amazing new app that lets you capture all the moments of your life with the power of audio. With Mumbo, you can record your thoughts, feelings, and reflections no matter where you are or what time of day it is, so you can seize the day and never miss a beat!</p>
+      <p>Welcome to Mumbo! It's the amazing new app that lets you capture all the moments of your life with the power of audio. With Mumbo, you can upload your thoughts, feelings, and reflections no matter where you are or what time of day it is, so you can seize the day and never miss a beat!</p>
 
       <a href="#" class="btn" onclick="document.getElementById('01').style.display='block'" style="width:auto;">Login</a>
 
