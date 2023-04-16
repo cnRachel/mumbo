@@ -20,12 +20,9 @@ if(isset($_POST['submit'])){
    $album_folder = 'uploaded_album/'.$album;
 
    if(isset($album)){
-      if($album_size > 2000000){
-         $message[] = 'album size is too large!';
-      }else{
-         move_uploaded_file($album_tmp_name, $album_folder);
-      }
-   }else{
+      move_uploaded_file($album_tmp_name, $album_folder);
+      
+   } else{
       $album = '';
    }
 
@@ -35,14 +32,11 @@ if(isset($_POST['submit'])){
    $music_tmp_name = $_FILES['music']['tmp_name'];
    $music_folder = 'uploaded_music/'.$music;
 
-   if($music_size > 100000000){
-      $message[] = 'audio size is too large!';
-   }else{
-      $upload_audio = $conn->prepare("INSERT INTO `songs`(name, artist, album, music) VALUES(?,?,?,?)");
-      $upload_audio->execute([$name, $artist, $album, $music]);
-      move_uploaded_file($music_tmp_name, $music_folder);
-      $message[] = 'new audio uploaded!';
-   }
+   $upload_audio = $conn->prepare("INSERT INTO `songs`(name, artist, album, music) VALUES(?,?,?,?)");
+   $upload_audio->execute([$name, $artist, $album, $music]);
+   move_uploaded_file($music_tmp_name, $music_folder);
+   $message[] = 'new audio uploaded!';
+
 
 }
 
