@@ -36,12 +36,12 @@ if(isset($_POST['submit'])){
    $music_folder = 'uploaded_music/'.$music;
 
    if($music_size > 100000000){
-      $message[] = 'music size is too large!';
+      $message[] = 'audio size is too large!';
    }else{
       $upload_audio = $conn->prepare("INSERT INTO `songs`(name, artist, album, music) VALUES(?,?,?,?)");
       $upload_audio->execute([$name, $artist, $album, $music]);
       move_uploaded_file($music_tmp_name, $music_folder);
-      $message[] = 'new music uploaded!';
+      $message[] = 'new audio uploaded!';
    }
 
 }
@@ -54,13 +54,15 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>upload audio</title>
+   <title>Mumbo</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/upload.css">
+
 
 </head>
 <body>
@@ -89,9 +91,13 @@ if(isset($message)){
       <input type="text" name="name" placeholder="enter title of entry" required maxlength="100" class="box">
       <p>date</p>
       <input type="text" name="artist" placeholder="enter date" maxlength="100" class="box">
-      <p>select audio <span>*</span></p>
+      <p>select audio or record<span>*</span></p>
       <input type="file" name="music" class="box" required accept="audio/*">
-      <p>select thumbnail</p>
+      <div class="recording">
+         <button id="start">Record</button>
+         <button id="stop" disabled>Stop Recording</button>
+      </div>
+      <p>select image</p>
       <input type="file" name="album" class="box" accept="image/*">
       <input type="submit" value="upload audio" class="btn" name="submit">
       <a href="home.php" class="option-btn">go to home</a>

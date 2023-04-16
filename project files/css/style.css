@@ -95,7 +95,7 @@ a:active {
 }
 
 .btn,
-.option-btn{
+.option-btn {
    display: block;
    width: 100%;
    margin-top: 1rem;
@@ -208,7 +208,6 @@ a:active {
 
 .playlist .box-container .box .album{
    margin:2rem;
-   border-radius: 50%;
    object-fit: contain;
    height: 15rem;
    width: 15rem;
@@ -284,9 +283,6 @@ a:active {
 .music-player .box .album{
    margin: 2rem;
    height: 15rem;
-   width: 15rem;
-   border-radius: 50%;
-   animation: beat 2s cubic-bezier(.3,1.41,.4,1.46) infinite;
 }
 
 @keyframes beat {
